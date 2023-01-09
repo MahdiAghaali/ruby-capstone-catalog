@@ -17,4 +17,20 @@ class Item
     @archived = archived
   end
 
+  def can_be_archived?
+    now = Date.today
+    before = Date.parse(@publish_date)
+    difference_in_days = (now - before).to_i
+
+    return true if  (difference_in_days/365.25).to_i > 10
+    false
+  end
+
+  def move_to_archive
+    @archived = true if can_be_archived?
+    return
+  end
+
 end
+
+
