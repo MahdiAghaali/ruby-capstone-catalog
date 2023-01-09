@@ -3,7 +3,7 @@ require_relative './main'
 
 class App
   attr_reader :books, :people, :rental
-  
+
   def initialize
     Main.new
   end

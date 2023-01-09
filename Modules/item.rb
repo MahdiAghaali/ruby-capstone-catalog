@@ -1,20 +1,22 @@
 require 'date'
 
 class Item
-  private 
+  private
+
   attr_reader :id, :archived
 
   public
+
   attr_reader :genre, :author, :source, :label, :publish_date
 
-  def inittialize(genre, author, source, label, date, archived)
-    @id = Random.rand(1..10000)
+  def inittialize(genre, author, source, label, _date)
+    @id = Random.rand(1..10_000)
     @genre = genre
     @author = author
     @source = source
     @label = label
     @publish_date = publish_date
-    @archived = archived
+    @archived = false
   end
 
   def can_be_archived?
@@ -22,15 +24,13 @@ class Item
     before = Date.parse(@publish_date)
     difference_in_days = (now - before).to_i
 
-    return true if  (difference_in_days/365.25).to_i > 10
+    return true if (difference_in_days / 365.25).to_i > 10
+
     false
   end
 
   def move_to_archive
     @archived = true if can_be_archived?
-    return
+    nil
   end
-
 end
-
-
