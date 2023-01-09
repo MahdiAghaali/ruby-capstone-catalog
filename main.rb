@@ -35,6 +35,7 @@ class Main
     puts '0 - Exit'
     user_choice = gets.chomp
     return exit if user_choice == '0'
+
     show_menu if user_choice == '9'
   end
 
@@ -48,6 +49,7 @@ class Main
     puts '0 - Exit'
     user_choice = gets.chomp
     return exit if user_choice == '0'
+
     show_menu if user_choice == '9'
   end
 
