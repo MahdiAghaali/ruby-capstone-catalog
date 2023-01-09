@@ -3,7 +3,6 @@ class Main
     puts "\n << WELCOME TO the Catalog of things >> \n"
     show_menu
   end
-
   def show_menu
     puts "\n Please choose an option by entering a number:"
     puts '1 -  View all lists'
@@ -64,7 +63,6 @@ class Main
     puts '0 - Exit'
     user_choice = gets.chomp
     return exit if user_choice == '0'
-
     show_menu if user_choice == '9'
   end
 
