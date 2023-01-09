@@ -4,7 +4,6 @@ class Main
     show_menu
   end
 
-
   def exit
     puts 'Thank you for using the app, see you later!'
   end
