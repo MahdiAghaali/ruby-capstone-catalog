@@ -21,7 +21,7 @@ class Main
     when '0'
       exit
     else
-      "That is an invalid input, Please try again."
+      puts 'That is an invalid input, Please try again.'
       show_menu
     end
   end
@@ -36,6 +36,7 @@ class Main
     puts '0 - Exit'
     user_choice = gets.chomp
     return exit if user_choice == '0'
+
     show_menu if user_choice == '9'
   end
 
@@ -49,8 +50,8 @@ class Main
     puts '0 - Exit'
     user_choice = gets.chomp
     return exit if user_choice == '0'
-    show_menu if user_choice == '9'
 
+    show_menu if user_choice == '9'
   end
 
   def add_data
@@ -63,8 +64,8 @@ class Main
     puts '0 - Exit'
     user_choice = gets.chomp
     return exit if user_choice == '0'
-    show_menu if user_choice == '9'
 
+    show_menu if user_choice == '9'
   end
 
   def exit
