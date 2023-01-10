@@ -25,6 +25,7 @@ class Item
     before = Date.parse(@publish_date)
     difference_in_days = (now - before).to_i
     return true if (difference_in_days / 365.25).to_i > 10
+
     false
   end
 
