@@ -1,4 +1,5 @@
 require 'date'
+require 'securerandom'
 
 class Item
   private
@@ -9,8 +10,8 @@ class Item
 
   attr_reader :genre, :author, :source, :label, :publish_date
 
-  def inittialize(genre, author, source, label, _date)
-    @id = Random.rand(1..10_000)
+  def inittialize(genre, author, source, label, publish_date)
+    @id = SecureRandom.uuid
     @genre = genre
     @author = author
     @source = source
@@ -31,5 +32,10 @@ class Item
   def move_to_archive
     @archived = true if can_be_archived?
     nil
+  end
+
+  def genre=(genre)
+    @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
   end
 end
