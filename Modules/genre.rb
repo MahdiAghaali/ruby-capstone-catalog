@@ -2,9 +2,10 @@ require('securerandom')
 
 class Genre
   attr_accessor :id, :name, :items
-  def initialize(name,items=[])
+
+  def initialize(name, items = [])
     @id = SecureRandom.uuid
-    @name =name
+    @name = name
     @items = items
   end
 
@@ -12,5 +13,4 @@ class Genre
     @items << item
     item.genre = self
   end
-
 end
