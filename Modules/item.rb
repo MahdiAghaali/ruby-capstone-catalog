@@ -1,4 +1,5 @@
 require 'date'
+require 'securerandom'
 
 class Item
   private
@@ -9,8 +10,8 @@ class Item
 
   attr_reader :genre, :author, :source, :label, :publish_date
 
-  def inittialize(genre, author, source, label, _date)
-    @id = Random.rand(1..10_000)
+  def inittialize(genre, author, source, label, publish_date)
+    @id = SecureRandom.uuid
     @genre = genre
     @author = author
     @source = source
@@ -24,7 +25,6 @@ class Item
     before = Date.parse(@publish_date)
     difference_in_days = (now - before).to_i
     return true if (difference_in_days / 365.25).to_i > 10
-
     false
   end
 
