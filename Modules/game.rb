@@ -9,4 +9,12 @@ class Game < Item
     @last_played_at = last_played_at
   end
 
+  def can_be_archived?
+    now = Date.today
+    before = Date.parse(@last_played_at)
+    difference_in_days = (now - before).to_i
+    return true if (difference_in_days / 365.25).to_i > 2
+
+    false
+  end
 end
