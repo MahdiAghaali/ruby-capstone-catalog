@@ -5,10 +5,11 @@ class MusicAlbum < Item
   attr_accessor :on_spotify
   attr_reader :id
 
-  def initialize(publish_date, on_spotify: true)
-    super(publish_date)
+  def initialize(publish_date, on_spotify)
+    super()
     @id = SecureRandom.uuid
     @on_spotify = on_spotify
+    @publish_date = Date.parse(publish_date)
   end
 
   def can_be_archived?
