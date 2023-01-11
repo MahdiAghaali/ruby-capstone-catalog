@@ -10,4 +10,9 @@ class Book < Item
     puts genre_in, author_in, source_in, label_in, publish_date_in, publisher_in, cover_state_in
   end
 
+  def can_be_archived?
+    return true if super || @cover_state == 'bad'
+
+    false
+  end
 end
