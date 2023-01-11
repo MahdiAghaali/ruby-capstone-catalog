@@ -1,0 +1,5 @@
+CREATE TABLE MusicAlbum(
+  id INTEGER GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+  on_spotify BOOLEAN,
+  publish_date DATE
+);
