@@ -2,7 +2,7 @@ require('json')
 require_relative('./genre')
 require_relative './music_actions'
 module GenreAction
-  # include MusicAction
+  
   def view_genres
     if File.exist?('./data/genre.json')
       files = File.open('./data/genre.json', 'r')
