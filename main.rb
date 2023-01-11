@@ -43,7 +43,7 @@ class Main
     user_choice = gets.chomp
 
     return exit if user_choice == '0'
-
+    show_musicalbum if user_choice == '4'
     show_menu if user_choice == '9'
   end
 
