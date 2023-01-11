@@ -3,3 +3,9 @@ CREATE TABLE MusicAlbum(
   on_spotify BOOLEAN,
   publish_date DATE
 );
+
+CREATE TABLE genre(
+  id INTEGER GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+  name VARCHAR(255),
+  FOREIGN KEY(item_id) REFERENCES items(id)
+);
