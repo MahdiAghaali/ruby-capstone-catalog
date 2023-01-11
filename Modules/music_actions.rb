@@ -38,14 +38,14 @@ module Music
     else
       puts 'Music Album List'
       getmusic.each do |element|
-      genre = view_genres.select {|i| i['id']== element['genre_id']}
-      the_genre = genre[0]
-      if the_genre
-        res = the_genre["name"]
-      else
-        res = "No genre added"
-      end
-      puts "Publish Date: #{element['publish_date']} Genre: #{res}"
+        genre = view_genres.select { |i| i['id'] == element['genre_id'] }
+        the_genre = genre[0]
+        res = if the_genre
+                the_genre['name']
+              else
+                'No genre added'
+              end
+        puts "Publish Date: #{element['publish_date']} Genre: #{res}"
       end
     end
   end
