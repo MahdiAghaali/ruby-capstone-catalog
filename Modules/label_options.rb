@@ -24,6 +24,7 @@ class LabelOptions
     print 'title: '
     title = gets.chomp
     break if title.zero?
+
     print 'color: '
     color = gets.chomp
     break if title.zero?
