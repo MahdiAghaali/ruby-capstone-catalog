@@ -76,7 +76,7 @@ class Main
 
   def add_data
     puts "\nPlease choose an option by entering a number:"
-    puts '1 - Add a new genre'
+    puts '1 - List all genres'
     puts '2 - Add a new author'
     puts '3 - Add a new source'
     puts '4 - Add a new label'
@@ -86,7 +86,8 @@ class Main
 
     case user_choice
     when '1'
-      create_genre
+      show_genres
+      show_menu
     when '2'
       add_data
     when '3'

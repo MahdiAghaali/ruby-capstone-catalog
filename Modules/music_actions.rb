@@ -32,6 +32,17 @@ module Music
     end
   end
 
+  def show_musicalbum
+    if getmusic.empty?
+      puts "<<< Music Album list empty >>>\n\n"
+    else
+      puts 'Music Album List'
+      getmusic.each do |element|
+      puts "Id: #{element['id']} Name: #{element['name']}"
+      end
+    end
+  end
+
   def store_music(obj)
     @musis_albums = getmusic
     @musis_albums << obj unless @musis_albums.include? obj
