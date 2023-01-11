@@ -2,7 +2,7 @@ require_relative './music_album'
 require_relative './genre_actions'
 module Music
   include GenreAction
-  # include MusicAlbum
+
   def create_musicalbum
     puts 'Please enter Publish Date[DD-MM-YYYY]'
     publish_date = gets.chomp
