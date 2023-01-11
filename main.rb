@@ -61,7 +61,7 @@ class Main
     when '1'
       show_list
     when '2'
-      show_list
+      ''
     when '3'
       add_data
     when '4'
@@ -90,7 +90,7 @@ class Main
       show_genres
       show_menu
     when '2'
-      add_data
+      ''
     when '3'
       add_data
     when '4'
