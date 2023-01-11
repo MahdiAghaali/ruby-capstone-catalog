@@ -1,8 +1,8 @@
-require ('./Modules/music_album')
+require './Modules/music_album'
 require 'date'
 
 describe 'Testing the Music album methods' do
-  before (:each) do
+  before(:each) do
     @new_music = MusicAlbum.new('15-08-2022', 'y')
   end
 
