@@ -4,13 +4,13 @@ require_relative './music_actions'
 module GenreAction
   # include MusicAction
   def view_genres
-    if File.exist?('./database/genre.json')
-      files = File.open('./database/genre.json', 'r')
+    if File.exist?('./data/genre.json')
+      files = File.open('./data/genre.json', 'r')
       JSON.parse(files.read)
 
     else
-      File.open('./database/genre.json', 'w') do |_file|
-        File.write('./database/genre.json', [])
+      File.open('./data/genre.json', 'w') do |_file|
+        File.write('./data/genre.json', [])
       end
       []
     end
@@ -87,8 +87,8 @@ module GenreAction
   def store_genre(obj)
     @genres = view_genres
     @genres << obj unless @genres.include? obj
-    File.open('./database/genre.json', 'w') do |_file|
-      File.write('./database/genre.json', JSON.pretty_generate(@genres))
+    File.open('./data/genre.json', 'w') do |_file|
+      File.write('./data/genre.json', JSON.pretty_generate(@genres))
     end
   end
 end

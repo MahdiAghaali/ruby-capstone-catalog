@@ -20,13 +20,13 @@ module Music
   end
 
   def getmusic
-    if File.exist?('./database/music_album.json')
-      files = File.open('./database/music_album.json', 'r')
+    if File.exist?('./data/music_album.json')
+      files = File.open('./data/music_album.json', 'r')
       JSON.parse(files.read)
 
     else
-      File.open('./database/music_album.json', 'w') do |_file|
-        File.write('./database/music_album.json', [])
+      File.open('./data/music_album.json', 'w') do |_file|
+        File.write('./data/music_album.json', [])
         return []
       end
     end
@@ -53,8 +53,8 @@ module Music
   def store_music(obj)
     @musis_albums = getmusic
     @musis_albums << obj unless @musis_albums.include? obj
-    File.open('./database/music_album.json', 'w') do |_file|
-      File.write('./database/music_album.json', JSON.pretty_generate(@musis_albums))
+    File.open('./data/music_album.json', 'w') do |_file|
+      File.write('./data/music_album.json', JSON.pretty_generate(@musis_albums))
     end
   end
 end
