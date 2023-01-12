@@ -56,6 +56,9 @@ After you're finished please remove all the comments and instructions!
 # 📖 [Ruby group capstone - Catalog of my things] <a name="about-project"></a>
 
 > In this project, we create a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the UML class diagram presented below. The data will be stored in JSON files but you will also prepare a database with tables structure analogical to your program's class structure.
+> 
+![](https://raw.githubusercontent.com/MahdiAghaali/ruby-capstone-catalog/dev/Screenshots/catalog_of_my_things.png)
+![](https://raw.githubusercontent.com/MahdiAghaali/ruby-capstone-catalog/dev/Screenshots/Capture.JPG)
 
 ## 🛠 Built With <a name="built-with"></a>
 
