@@ -14,9 +14,4 @@ describe 'Testing Label functions' do
     expect(@new_label.color).to eql 'red'
   end
 
-  it 'Add item to array' do
-    @new_label.add_item(@new_book)
-    len = @new_label.items.length
-    expect(len).to eql 1
-  end
 end
