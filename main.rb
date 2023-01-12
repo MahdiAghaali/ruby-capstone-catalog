@@ -1,3 +1,7 @@
+require_relative './Modules/book_options'
+require_relative './Modules/label_options'
+require_relative './Modules/game_options'
+require_relative './Modules/storage'
 require('./Modules/music_actions')
 require('./Modules/genre_actions')
 require('json')
@@ -6,6 +10,14 @@ class Main
   include Music
   include GenreAction
   def initialize
+    @book_options = BookOptions.new
+    @label_options = LabelOptions.new
+    @game_options = GameOptions.new
+
+    @book_options.list = Storage.load_data('Book')
+    @label_options.list = Storage.load_data('Label')
+    @game_options.list = Storage.load_data('Game')
+
     puts "\n << WELCOME TO the Catalog of things >> \n"
     show_menu
   end
@@ -40,12 +52,22 @@ class Main
     puts '4 - List all Music Album '
     puts '9 - Back'
     puts '0 - Exit'
+
     user_choice = gets.chomp
-
-    return exit if user_choice == '0'
-
-    show_musicalbum if user_choice == '4'
-    show_menu if user_choice == '9'
+    case user_choice
+    when '2'
+      @game_options.show_list
+    when '3'
+      @book_options.show_list
+    when '9'
+      show_menu
+    when '0'
+      exit
+    else
+      puts 'That is an invalid input, Please try again.'
+      add_item
+    end
+    show_menu
   end
 
   def add_item
@@ -56,23 +78,26 @@ class Main
     puts '4 - Add a new Music Album '
     puts '9 - Back'
     puts '0 - Exit'
+
     user_choice = gets.chomp
     case user_choice
-    when '1'
-      show_list
     when '2'
-      ''
+      @game_options.add_item(@label_options)
+      Storage.save_data('Game', @game_options.list)
     when '3'
-      add_data
+      @book_options.add_item(@label_options)
+      Storage.save_data('Book', @book_options.list)
     when '4'
       create_musicalbum
+    when '9'
+      show_menu
+    when '0'
+      exit
     else
       puts 'That is an invalid input, Please try again.'
-      show_menu
+      add_item
     end
-    return exit if user_choice == '0'
-
-    show_menu if user_choice == '9'
+    show_menu
   end
 
   def add_data
@@ -83,26 +108,21 @@ class Main
     puts '4 - Add a new label'
     puts '9 - Back'
     puts '0 - Exit'
-    user_choice = gets.chomp
 
+    user_choice = gets.chomp
     case user_choice
-    when '1'
-      show_genres
-      show_menu
-    when '2'
-      ''
-    when '3'
-      add_data
     when '4'
-      create_musicalbum
+      @label_options.add_item
+      Storage.save_data('Label', @label_options.list)
+    when '9'
+      show_menu
+    when '0'
+      exit
     else
       puts 'That is an invalid input, Please try again.'
-      show_menu
+      add_item
     end
-
-    return exit if user_choice == '0'
-
-    show_menu if user_choice == '9'
+    show_menu
   end
 
   def exit
