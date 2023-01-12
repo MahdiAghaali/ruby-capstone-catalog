@@ -4,7 +4,7 @@ class Genre
   attr_accessor :id, :name, :items
 
   def initialize(name, items = [])
-    @id = SecureRandom.uuid
+    @id = Random.rand(1..1000)
     @name = name
     @items = items
   end

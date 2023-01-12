@@ -1,4 +1,10 @@
+require('./Modules/music_actions')
+require('./Modules/genre_actions')
+require('json')
+
 class Main
+  include Music
+  include GenreAction
   def initialize
     puts "\n << WELCOME TO the Catalog of things >> \n"
     show_menu
@@ -35,8 +41,10 @@ class Main
     puts '9 - Back'
     puts '0 - Exit'
     user_choice = gets.chomp
+
     return exit if user_choice == '0'
 
+    show_musicalbum if user_choice == '4'
     show_menu if user_choice == '9'
   end
 
@@ -49,6 +57,19 @@ class Main
     puts '9 - Back'
     puts '0 - Exit'
     user_choice = gets.chomp
+    case user_choice
+    when '1'
+      show_list
+    when '2'
+      ''
+    when '3'
+      add_data
+    when '4'
+      create_musicalbum
+    else
+      puts 'That is an invalid input, Please try again.'
+      show_menu
+    end
     return exit if user_choice == '0'
 
     show_menu if user_choice == '9'
@@ -56,13 +77,29 @@ class Main
 
   def add_data
     puts "\nPlease choose an option by entering a number:"
-    puts '1 - Add a new genre'
+    puts '1 - List all genres'
     puts '2 - Add a new author'
     puts '3 - Add a new source'
     puts '4 - Add a new label'
     puts '9 - Back'
     puts '0 - Exit'
     user_choice = gets.chomp
+
+    case user_choice
+    when '1'
+      show_genres
+      show_menu
+    when '2'
+      ''
+    when '3'
+      add_data
+    when '4'
+      create_musicalbum
+    else
+      puts 'That is an invalid input, Please try again.'
+      show_menu
+    end
+
     return exit if user_choice == '0'
 
     show_menu if user_choice == '9'
