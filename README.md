@@ -23,7 +23,7 @@ After you're finished please remove all the comments and instructions!
 -->
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
+
   <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
@@ -95,7 +95,7 @@ Clone this repository to your desired folder:
 ```
 ### Install
 
-Install thr project dependencies with:
+Install the project dependencies with:
 
 ```
   bundle install
@@ -106,7 +106,7 @@ Install thr project dependencies with:
 To run the project, execute the following command:
 
 ```
-  ruby [file_name].rb
+  ruby app.rb
 ```
 
 ### Run tests
@@ -116,6 +116,9 @@ To run tests, run the following command:
 ```
   rspec *_rspec.rb
 ```
+
+### Live demonstration link
+[Live Demonstration-](https://youtu.be/2EueHnC4bTY) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
