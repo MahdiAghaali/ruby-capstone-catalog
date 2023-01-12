@@ -16,3 +16,9 @@ CREATE TABLE [Label](
 	[color] [varchar](50) NULL,
 	[items] [nvarchar](MAX) NULL,
 );
+
+CREATE TABLE [Source](
+	[id] [int] GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+	[name] [varchar](50) NULL,
+	[items] [nvarchar](MAX) NULL,
+)
