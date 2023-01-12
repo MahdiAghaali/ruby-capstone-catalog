@@ -82,3 +82,29 @@ ALTER TABLE [Book] CHECK CONSTRAINT [FK_Book_Label]
 ALTER TABLE [Book]  WITH CHECK ADD  CONSTRAINT [FK_Book_Source] FOREIGN KEY([source])
 REFERENCES [Source] ([id])
 ALTER TABLE [Book] CHECK CONSTRAINT [FK_Book_Source]
+
+CREATE TABLE [Game](
+	[id] [int] GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+	[genre] [int] ,
+	[author] [int] ,
+	[source] [int] ,
+	[label] [int] ,
+	[publishdate] [date] ,
+	[archived] [BOOLEAN] ,
+);
+
+ALTER TABLE [Game]  WITH CHECK ADD  CONSTRAINT [FK_Game_Author] FOREIGN KEY([author])
+REFERENCES [Author] ([id])
+ALTER TABLE [Game] CHECK CONSTRAINT [FK_Game_Author]
+
+ALTER TABLE [Game]  WITH CHECK ADD  CONSTRAINT [FK_Game_Genre] FOREIGN KEY([genre])
+REFERENCES [Genre] ([id])
+ALTER TABLE [Game] CHECK CONSTRAINT [FK_Game_Genre]
+
+ALTER TABLE [Game]  WITH CHECK ADD  CONSTRAINT [FK_Game_Label] FOREIGN KEY([label])
+REFERENCES [Label] ([id])
+ALTER TABLE [Game] CHECK CONSTRAINT [FK_Game_Label]
+
+ALTER TABLE [Game]  WITH CHECK ADD  CONSTRAINT [FK_Game_Source] FOREIGN KEY([source])
+REFERENCES [Source] ([id])
+ALTER TABLE [Game] CHECK CONSTRAINT [FK_Game_Source]
