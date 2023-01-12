@@ -2,21 +2,15 @@ require 'date'
 require 'securerandom'
 
 class Item
-  private
+  attr_accessor :genre, :author, :source, :label, :publish_date, :id, :archived
 
-  attr_reader :id, :archived
-
-  public
-
-  attr_reader :genre, :author, :source, :label, :publish_date
-
-  def inittialize(genre, author, source, label, publish_date)
+  def initialize(genre_in, author_in, source_in, label_in, publish_date_in)
     @id = SecureRandom.uuid
-    @genre = genre
-    @author = author
-    @source = source
-    @label = label
-    @publish_date = publish_date
+    @genre = genre_in
+    @author = author_in
+    @source = source_in
+    @label = label_in
+    @publish_date = publish_date_in
     @archived = false
   end
 
