@@ -8,14 +8,9 @@ class LabelOptions
   end
 
   def show_list
-    if @list.empty?
-      puts 'No record found! Add a label...'
-      add_item
-    else
-      puts "Available label in the catalog: #{@list.count}"
-      @list.each_with_index do |label, index|
-        puts "[#{index}] - Name: #{label.title}, Color: #{label.color}"
-      end
+    puts "Available label in the catalog: #{@list.count}"
+    @list.each_with_index do |label, index|
+      puts "[#{index}] - Name: #{label.title}, Color: #{label.color}"
     end
   end
 
@@ -26,6 +21,17 @@ class LabelOptions
     print 'color: '
     color = gets.chomp
     @list << Label.new(title, color)
+    Storage.save_data('Label', @list)
     puts "\n Label created successfuly"
   end
+
+  def select
+    print 'do you want to create a new label (y/n)? '
+    lable_choice = gets.chomp
+    if @list.empty? || lable_choice == 'y' then
+      add_item
+    end
+    show_list
+  end
+
 end
