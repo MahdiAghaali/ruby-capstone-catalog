@@ -28,10 +28,7 @@ class LabelOptions
   def select
     print 'do you want to create a new label (y/n)? '
     lable_choice = gets.chomp
-    if @list.empty? || lable_choice == 'y' then
-      add_item
-    end
+    add_item if @list.empty? || lable_choice == 'y'
     show_list
   end
-
 end

@@ -6,6 +6,7 @@ class MusicAlbum < Item
   attr_reader :id
 
   def initialize(publish_date, on_spotify)
+    super(2,2,2,2,2)
     @id = SecureRandom.uuid
     @on_spotify = on_spotify
     @publish_date = Date.parse(publish_date)

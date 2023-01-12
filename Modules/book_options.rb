@@ -26,7 +26,7 @@ class BookOptions
     end
   end
 
-  def add_item(label_options, author_options)
+  def add_item(label_options, _author_options)
     print 'genre: '
     genre = gets.chomp
 

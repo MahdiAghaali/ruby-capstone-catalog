@@ -27,8 +27,8 @@ class GameOptions
     author = gets.chomp
 
     print 'source: '
-    source = gets.chomp   
-    
+    source = gets.chomp
+
     print 'label: '
     label_options.select
     label = gets.chomp
