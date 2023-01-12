@@ -2,7 +2,13 @@ require_relative './Modules/book_options'
 require_relative './Modules/label_options'
 require_relative './Modules/game_options'
 require_relative './Modules/storage'
+require('./Modules/music_actions')
+require('./Modules/genre_actions')
+require('json')
+
 class Main
+  include Music
+  include GenreAction
   def initialize
     @book_options = BookOptions.new
     @label_options = LabelOptions.new
@@ -81,6 +87,8 @@ class Main
     when '3'
       @book_options.add_item(@label_options)
       Storage.save_data('Book', @book_options.list)
+    when '4'
+      create_musicalbum
     when '9'
       show_menu
     when '0'
@@ -94,7 +102,7 @@ class Main
 
   def add_data
     puts "\nPlease choose an option by entering a number:"
-    puts '1 - Add a new genre'
+    puts '1 - List all genres'
     puts '2 - Add a new author'
     puts '3 - Add a new source'
     puts '4 - Add a new label'
