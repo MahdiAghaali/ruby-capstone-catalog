@@ -30,3 +30,30 @@ CREATE TABLE [Author](
 	[items] [varchar](50) NULL,
 )
 
+
+CREATE TABLE [Item](
+	[id] [int] GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+	[genre] [int] ,
+	[author] [int] ,
+	[source] [int] ,
+	[label] [int] ,
+	[publishdate] [date] ,
+	[archived] [BOOLEAN] ,
+);
+
+ALTER TABLE [Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Author] FOREIGN KEY([author])
+REFERENCES [Author] ([id])
+ALTER TABLE [Item] CHECK CONSTRAINT [FK_Item_Author]
+
+ALTER TABLE [Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Genre] FOREIGN KEY([genre])
+REFERENCES [Genre] ([id])
+ALTER TABLE [Item] CHECK CONSTRAINT [FK_Item_Genre]
+
+ALTER TABLE [Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Label] FOREIGN KEY([label])
+REFERENCES [Label] ([id])
+ALTER TABLE [Item] CHECK CONSTRAINT [FK_Item_Label]
+
+ALTER TABLE [Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Source] FOREIGN KEY([source])
+REFERENCES [Source] ([id])
+ALTER TABLE [Item] CHECK CONSTRAINT [FK_Item_Source]
+
