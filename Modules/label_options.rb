@@ -23,12 +23,8 @@ class LabelOptions
     print 'To add a new lable please enter the following parameters(type 0 to exit): '
     print 'title: '
     title = gets.chomp
-    break if title.zero?
-
     print 'color: '
     color = gets.chomp
-    break if title.zero?
-
     @list << Label.new(title, color)
     puts "\n Label created successfuly"
   end

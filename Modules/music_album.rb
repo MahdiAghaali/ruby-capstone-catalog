@@ -5,8 +5,7 @@ class MusicAlbum < Item
   attr_accessor :on_spotify
   attr_reader :id
 
-  def initialize(genre_in, author_in, source_in, label_in, publish_date_in, publish_date, on_spotify)
-    super(genre_in, author_in, source_in, label_in, publish_date_in)
+  def initialize(publish_date, on_spotify)
     @id = SecureRandom.uuid
     @on_spotify = on_spotify
     @publish_date = Date.parse(publish_date)

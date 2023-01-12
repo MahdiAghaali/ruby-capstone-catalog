@@ -26,7 +26,6 @@ class Main
     puts "\n Please choose an option by entering a number:"
     puts '1 -  View all lists'
     puts '2 -  Create new items'
-    puts '3 -  Add new basic data'
     puts '0 -  Exit'
     user_choice = gets.chomp
     case user_choice
@@ -34,8 +33,6 @@ class Main
       show_list
     when '2'
       add_item
-    when '3'
-      add_data
     when '0'
       exit
     else
@@ -46,19 +43,20 @@ class Main
 
   def show_list
     puts "\nPlease choose an option by entering a number:"
-    puts '1 - List all Movies'
-    puts '2 - List all Games'
-    puts '3 - List all Books'
-    puts '4 - List all Music Album '
+    puts '1 - List all Games'
+    puts '2 - List all Books'
+    puts '3 - List all Music Album '
     puts '9 - Back'
     puts '0 - Exit'
 
     user_choice = gets.chomp
     case user_choice
-    when '2'
+    when '1'
       @game_options.show_list
-    when '3'
+    when '2'
       @book_options.show_list
+    when '3'
+      show_musicalbum
     when '9'
       show_menu
     when '0'
@@ -72,48 +70,22 @@ class Main
 
   def add_item
     puts "\nPlease choose an option by entering a number:"
-    puts '1 - Add a new Movie'
-    puts '2 - Add a new Game'
-    puts '3 - Add a new Book'
-    puts '4 - Add a new Music Album '
+    puts '1 - Add a new Game'
+    puts '2 - Add a new Book'
+    puts '3 - Add a new Music Album '
     puts '9 - Back'
     puts '0 - Exit'
 
     user_choice = gets.chomp
     case user_choice
-    when '2'
+    when '1'
       @game_options.add_item(@label_options)
       Storage.save_data('Game', @game_options.list)
-    when '3'
+    when '2'
       @book_options.add_item(@label_options)
       Storage.save_data('Book', @book_options.list)
-    when '4'
+    when '3'
       create_musicalbum
-    when '9'
-      show_menu
-    when '0'
-      exit
-    else
-      puts 'That is an invalid input, Please try again.'
-      add_item
-    end
-    show_menu
-  end
-
-  def add_data
-    puts "\nPlease choose an option by entering a number:"
-    puts '1 - List all genres'
-    puts '2 - Add a new author'
-    puts '3 - Add a new source'
-    puts '4 - Add a new label'
-    puts '9 - Back'
-    puts '0 - Exit'
-
-    user_choice = gets.chomp
-    case user_choice
-    when '4'
-      @label_options.add_item
-      Storage.save_data('Label', @label_options.list)
     when '9'
       show_menu
     when '0'
