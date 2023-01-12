@@ -93,7 +93,6 @@ Clone this repository to your desired folder:
   git clone https://github.com/MahdiAghaali/ruby-capstone-catalog
   cd ruby-capstone-catalog
 ```
-
 ### Install
 
 Install thr project dependencies with:
