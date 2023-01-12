@@ -1,7 +1,7 @@
 require_relative './author'
 
 module AuthorActions
-  def getAuthor
+  def view_author
     if File.exist?('./data/author.json')
       files = File.open('./data/author.json', 'r')
       JSON.parse(files.read)
@@ -29,7 +29,7 @@ module AuthorActions
     first_name = gets.chomp
     puts 'Enter last name?'
     last_name = gets.chomp
-    new_author = Author.new(first_name,last_name)
+    new_author = Author.new(first_name, last_name)
     data = {
       id: new_author.id,
       first_name: new_author.first_name,
@@ -40,7 +40,7 @@ module AuthorActions
   end
 
   def store_author(obj)
-    @authors = getAuthor
+    @authors = view_author
     @authors << obj unless @authors.include? obj
     File.open('./data/author.json', 'w') do |_file|
       File.write('./data/author.json', JSON.pretty_generate(@authors))

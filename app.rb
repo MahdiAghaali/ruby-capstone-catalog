@@ -2,7 +2,7 @@ require('./Modules/author')
 
 describe 'Testing Author Album functions' do
   before(:each) do
-    @new_author = Author.new('Igiee','Aria')
+    @new_author = Author.new('Igiee', 'Aria')
   end
 
   it 'Returns the instance of class' do
