@@ -1,6 +1,10 @@
 require_relative './author'
 
-module AuthorActions
+class AuthorActions
+  attr_accessor :author_array
+  def initialize
+    @author_array = []
+  end
   def view_author
     if File.exist?('./data/author.json')
       files = File.open('./data/author.json', 'r')
@@ -14,12 +18,12 @@ module AuthorActions
   end
 
   def show_authors
-    if view_authors.empty?
+    if @author_array.empty?
       puts "<<< Author list empty >>>\n\n"
     else
       puts 'Authors List'
-      view_authors.each do |element|
-        puts "Id: #{element['id']} first_name: #{element['first_name']} last_name: #{element['last_name']}"
+      @author_array.each_with_index do |element, index|
+        puts "Id: #{index} first_name: #{element.first_name} last_name: #{element.last_name}"
       end
     end
   end
@@ -30,11 +34,12 @@ module AuthorActions
     puts 'Enter last name?'
     last_name = gets.chomp
     new_author = Author.new(first_name, last_name)
+    @author_array << new_author
     data = {
       id: new_author.id,
       first_name: new_author.first_name,
       last_name: new_author.last_name
-    }
+    }    
     store_author(data)
     puts 'Author created successfully'
   end
@@ -45,5 +50,14 @@ module AuthorActions
     File.open('./data/author.json', 'w') do |_file|
       File.write('./data/author.json', JSON.pretty_generate(@authors))
     end
+  end
+
+  def select
+    print 'do you want to create a new Author (y/n)? '
+    author_choice = gets.chomp
+    if author_choice == 'y' then
+      create_author
+    end
+    show_authors
   end
 end
