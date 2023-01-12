@@ -2,17 +2,18 @@ require 'date'
 require 'securerandom'
 
 class Item
-  attr_accessor :genre, :author, :source, :label, :publish_date, :id, :archived
+  attr_accessor :source, :publish_date, :id, :archived
 
-  def initialize(genre_in, author_in, source_in, label_in, publish_date_in)
-    @id = SecureRandom.uuid
-    @genre = genre_in
-    @author = author_in
-    @source = source_in
-    @label = label_in
-    @publish_date = publish_date_in
-    @archived = false
-  end
+  attr_reader :genre, :author, :label,
+              def initialize(genre_in, author_in, source_in, label_in, publish_date_in)
+                @id = SecureRandom.uuid
+                @genre = genre_in
+                @author = author_in
+                @source = source_in
+                @label = label_in
+                @publish_date = publish_date_in
+                @archived = false
+              end
 
   def can_be_archived?
     now = Date.today
@@ -31,5 +32,15 @@ class Item
   def genres=(genre)
     @genre = genre
     genre.items.push(self) unless genre.items.include?(self)
+  end
+
+  def authors=(author)
+    @author = author
+    author.items.push(self) unless author.items.include?(self)
+  end
+
+  def labels=(label)
+    @label = label
+    label.items.push(self) unless label.items.include?(self)
   end
 end
