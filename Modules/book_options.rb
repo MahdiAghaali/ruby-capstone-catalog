@@ -26,7 +26,7 @@ class BookOptions
     end
   end
 
-  def add_item(label_options)
+  def add_item(label_options, author_options)
     print 'genre: '
     genre = gets.chomp
 
@@ -36,8 +36,8 @@ class BookOptions
     print 'source: '
     source = gets.chomp
 
-    print 'label id: '
-    label_options.show_list
+    print 'label: '
+    label_options.select
     label = gets.chomp
 
     print 'date(YYYY-MM-DD): '

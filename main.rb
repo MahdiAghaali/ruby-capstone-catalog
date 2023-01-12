@@ -4,6 +4,7 @@ require_relative './Modules/game_options'
 require_relative './Modules/storage'
 require('./Modules/music_actions')
 require('./Modules/genre_actions')
+require('./Modules/author_actions')
 require('json')
 
 class Main
@@ -13,6 +14,7 @@ class Main
     @book_options = BookOptions.new
     @label_options = LabelOptions.new
     @game_options = GameOptions.new
+    @author_options = AuthorActions.new
 
     @book_options.list = Storage.load_data('Book')
     @label_options.list = Storage.load_data('Label')
@@ -79,10 +81,10 @@ class Main
     user_choice = gets.chomp
     case user_choice
     when '1'
-      @game_options.add_item(@label_options)
+      @game_options.add_item(@label_options, @author_options)
       Storage.save_data('Game', @game_options.list)
     when '2'
-      @book_options.add_item(@label_options)
+      @book_options.add_item(@label_options, @author_options)
       Storage.save_data('Book', @book_options.list)
     when '3'
       create_musicalbum

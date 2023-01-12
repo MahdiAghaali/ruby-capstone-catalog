@@ -18,18 +18,19 @@ class GameOptions
     end
   end
 
-  def add_item(label_options)
+  def add_item(label_options, author_options)
     print 'genre: '
     genre = gets.chomp
 
     print 'author: '
+    author_options.select
     author = gets.chomp
 
     print 'source: '
-    source = gets.chomp
-
-    print 'label id: '
-    label_options.show_all_labels
+    source = gets.chomp   
+    
+    print 'label: '
+    label_options.select
     label = gets.chomp
 
     print 'date(YYYY-MM-DD): '
