@@ -13,5 +13,4 @@ describe 'Testing Label functions' do
   it 'check properties' do
     expect(@new_label.color).to eql 'red'
   end
-
 end
