@@ -22,3 +22,11 @@ CREATE TABLE [Source](
 	[name] [varchar](50) NULL,
 	[items] [nvarchar](MAX) NULL,
 )
+
+CREATE TABLE [Author](
+	[id] [int] GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+	[first_name] [varchar](50) NULL,
+	[last_name] [varchar](50) NULL,
+	[items] [varchar](50) NULL,
+)
+
